@@ -6,15 +6,15 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 11:59:39 by smagdela          #+#    #+#              #
-#    Updated: 2021/08/10 11:24:51 by smagdela         ###   ########.fr        #
+#    Updated: 2021/08/12 16:11:52 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME    =    libft.a
 
-CC        =    gcc -c -o
-LINKER    =    ar rcs
-RM        =    rm -rf
+CC        =		clang -c -o
+LINKER    =		ar rc
+RM        =		rm -rf
 
 SRCS    =   ft_bzero.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \
             ft_strchr.c ft_strrchr.c ft_strlcpy.c ft_strdup.c ft_strlcat.c ft_strlen.c ft_strncmp.c ft_strnstr.c \
@@ -36,6 +36,7 @@ LDFLAGS	=
 
 ${NAME}:	${OBJS}
 	${LINKER} $@ ${LDFLAGS} ${OBJS}
+	ranlib ${NAME}
 
 all: ${NAME}
 
@@ -44,6 +45,7 @@ ${OBJD}%.o:    ${SRCD}%.c
 
 bonus:	${OBJS} ${BONUSO}
 	${LINKER} ${LDFLAGS} ${NAME} ${OBJS} ${BONUSO}
+	ranlib ${NAME}
 
 clean:
 	${RM} ${OBJS} ${BONUSO}
@@ -53,4 +55,4 @@ fclean:
 
 re:    fclean all
 
-.PHONY: re all clean fclean
+.PHONY: re all clean fclean bonus
