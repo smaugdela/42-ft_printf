@@ -6,14 +6,14 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/10 14:45:50 by smagdela          #+#    #+#              #
-#    Updated: 2021/08/12 18:46:17 by smagdela         ###   ########.fr        #
+#    Updated: 2021/08/13 12:33:39 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libftprintf.a
 
 LIBFTD	=	libft/
-LIBFT	=	ft_putchar_fd.c
+LIBFT	=	ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_base_fd.c ft_putnbr_fd.c ft_strlen.c
 LIBFTO	=	${addprefix ${OBJD}, ${LIBFT:.c=.o}}
 
 SRCD	=	sources/
