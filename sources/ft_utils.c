@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 08:07:56 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/16 09:44:19 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/16 12:54:11 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void	ft_print_width(int width, int bool_0flag, int arg_len)
 		c = ' ';
 	else
 		c = '0';
-	while (len--)
+	while (len-- > 0)
 		write(1, &c, 1);
 }

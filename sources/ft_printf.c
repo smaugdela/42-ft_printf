@@ -6,11 +6,12 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 17:43:53 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/16 09:43:33 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/16 12:54:10 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*https://www.ibisc.univ-evry.fr/~petit/Enseignement/Modelisation-en-C/printf-conversions-format.pdf*/
+
 
 #include "printf.h"
 
