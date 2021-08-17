@@ -6,18 +6,18 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/10 14:45:50 by smagdela          #+#    #+#              #
-#    Updated: 2021/08/16 12:54:12 by smagdela         ###   ########.fr        #
+#    Updated: 2021/08/17 11:45:26 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libftprintf.a
 
 LIBFTD	=	libft/
-LIBFT	=	ft_putstr_fd.c ft_putnbr_base_fd.c ft_putnbr_fd.c ft_strlen.c ft_substr.c ft_atoi.c ft_isdigit.c
+LIBFT	=	ft_putstr_fd.c ft_putnbr_base_fd.c ft_putnbr_fd.c ft_strlen.c ft_substr.c ft_atoi.c ft_isdigit.c ft_strrchr.c
 LIBFTO	=	${addprefix ${OBJD}, ${LIBFT:.c=.o}}
 
 SRCD	=	sources/
-SRCS	=	ft_printf.c ft_print_cpercent.c ft_utils.c #ft_print_di.c ft_print_p.c ft_print_s.c ft_print_s.c ft_print_u.c ft_print_xX.c
+SRCS	=	ft_printf.c ft_print_cpercent.c ft_utils.c ft_init_structspec.c #ft_print_di.c ft_print_p.c ft_print_s.c ft_print_s.c ft_print_u.c ft_print_xX.c
 
 OBJD	=	objects/
 OBJS	:=	${addprefix ${OBJD}, ${SRCS:.c=.o}}

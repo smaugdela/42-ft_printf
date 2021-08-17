@@ -6,12 +6,11 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 17:43:53 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/16 12:54:10 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/17 11:03:55 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*https://www.ibisc.univ-evry.fr/~petit/Enseignement/Modelisation-en-C/printf-conversions-format.pdf*/
-
 
 #include "printf.h"
 
@@ -49,8 +48,9 @@ int	ft_printf(const char *str, ...)
 			spec_len = ft_strlen_charset(++str, "cspdiuxX%") + 1;
 			specifier = ft_substr(str, 0, spec_len);
 			str += spec_len - 1;
-			if (ft_dispatcher(specifier, spec_len, arguments) == 42)
+			if (ft_dispatcher(specifier, spec_len, arguments) != 0)
 			{
+				
 				free(specifier);
 				return (42);
 			}
@@ -63,3 +63,4 @@ int	ft_printf(const char *str, ...)
 	va_end(arguments);
 	return (0);
 }
+

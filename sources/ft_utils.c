@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 08:07:56 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/16 12:54:11 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/17 12:02:34 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_strlen_charset(const char *str, char *charset)
 	return (len);
 }
 
-void	ft_print_width(int width, int bool_0flag, int arg_len)
+void	ft_print_width(int width, t_bool bool_0flag, int arg_len)
 {
 	int		len;
 	char	c;

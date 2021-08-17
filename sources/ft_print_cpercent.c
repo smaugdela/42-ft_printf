@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:20:23 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/16 12:54:09 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/17 11:41:35 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "printf.h"
 
-/*
+
 int		ft_print_cpercent(const char *specifier, char arg)
 {
 	int	bool_0flag;
@@ -46,10 +46,4 @@ int		ft_print_cpercent(const char *specifier, char arg)
 			write(1, &arg, 1);
 	}
 	return (0);
-}
-*/
-
-int		ft_print_cpercent(const char *specifier, char arg)
-{
-	
 }
