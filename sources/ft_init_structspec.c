@@ -6,34 +6,11 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 11:42:10 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/17 12:11:12 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/17 12:15:27 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-
-static int	ft_nblen(int nb)
-{
-	unsigned int	len;
-	unsigned int	tmp_nb;
-
-	if (nb == 0)
-		return (1);
-	len = 0;
-	if (nb < 0)
-	{
-		++len;
-		tmp_nb = -nb;
-	}
-	else
-		tmp_nb = nb;
-	while (tmp_nb)
-	{
-		++len;
-		tmp_nb = tmp_nb / 10;
-	}
-	return (len);
-}
 
 static t_specifier ft_init_structspec(t_specifier spec)
 {
