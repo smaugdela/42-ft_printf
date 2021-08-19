@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 15:21:28 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/19 12:34:01 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/19 20:55:07 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-
-/* /!\ ATTENTION Supprimer cet include ATTENTION /!\ */
+# include <stdint.h>	/* /!\ ATTENTION Supprimer cet include ATTENTION /!\ */
 
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putnbr_base_fd(int n, int fd, const char *base);
@@ -26,6 +25,7 @@ char		*ft_substr(char const *s, unsigned int start, size_t len);
 int			ft_isdigit(int c);
 int			ft_atoi(const char *str);
 char		*ft_strrchr(const char *s, int c);
+char		*ft_strdup(const char *str);
 
 typedef uint8_t	t_bool;
 
