@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:32:45 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/23 16:18:43 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/24 22:07:45 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ static void	ft_printer(t_specifier spec, int arg)
 		write(1, "-", 1);
 		arg = ft_absol(arg);
 	}
-	if (spec.precision > ft_nblen(arg))
-		ft_print_width(spec.precision , 1, ft_nblen(arg));
+	ft_print_width(spec.precision , 1, ft_nblen(arg));
 	ft_putnbr_fd(arg, 1);
 }
 

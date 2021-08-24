@@ -6,18 +6,18 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:23:51 by smagdela          #+#    #+#             */
-/*   Updated: 2021/05/26 17:24:58 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/24 22:15:37 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(long long int n, int fd)
 {
 	char	c;
 
-	if (n == -2147483648)
-		write (fd, "-2147483648", 11);
+	if (n == -9223372036854775807)
+		write (fd, "−9223372036854775807",  11);
 	else
 	{
 		if (n < 0)

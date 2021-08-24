@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 17:43:53 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/19 20:55:02 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/24 22:18:53 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static int	ft_dispatcher(t_specifier spec, va_list arguments)
 		return (ft_print_s(spec, va_arg(arguments, char*)));
 	else if (ft_is_in_charset(spec.converter, "di"))
 		return (ft_print_di(spec, va_arg(arguments, int)));
-/*	else if (spec.converter == 'u')
+	else if (spec.converter == 'u')
 		return (ft_print_u(spec, va_arg(arguments, unsigned int)));
-	else if (ft_is_in_charset(spec.converter, "xX"))
+/*	else if (ft_is_in_charset(spec.converter, "xX"))
 		return (ft_print_xX(spec, va_arg(arguments, unsigned int)));
 	else if (spec.converter == 'p')
 		return (ft_print_p(spec, va_arg(arguments, void*)));*/
