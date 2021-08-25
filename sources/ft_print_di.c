@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:32:45 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/24 22:07:45 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/25 10:20:08 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,6 @@ static int	ft_nblen(int nb)
 		tmp_nb = tmp_nb / 10;
 	}
 	return (len);
-}
-
-static int	ft_max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
 }
 
 static unsigned int	ft_absol(int nb)

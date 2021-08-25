@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:24:28 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/24 22:11:08 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/25 11:11:52 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(long long int n, int fd);
-void	ft_putnbr_base_fd(int n, int fd, const char *base);
+void	ft_putnbr_base_fd(long long int n, int fd, const char *base);
 
 typedef struct s_list
 {
