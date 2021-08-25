@@ -6,13 +6,13 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 17:43:53 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/25 10:35:39 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/25 11:28:50 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*https://www.ibisc.univ-evry.fr/~petit/Enseignement/Modelisation-en-C/printf-conversions-format.pdf*/
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	ft_dispatcher(t_specifier spec, va_list arguments)
 {

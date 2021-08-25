@@ -6,13 +6,13 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:20:23 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/23 15:59:32 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/25 11:25:20 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* - et -0 pour le %*/
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_print_cpercent(t_specifier spec, char arg)
 {

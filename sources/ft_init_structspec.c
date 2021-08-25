@@ -6,11 +6,11 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 11:42:10 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/19 12:26:23 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/25 11:25:20 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static t_specifier ft_init_structspec(void)
 {

@@ -6,11 +6,11 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 08:07:56 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/25 10:20:26 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/25 11:25:20 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_max(int a, int b)
 {

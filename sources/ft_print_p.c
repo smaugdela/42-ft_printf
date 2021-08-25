@@ -6,13 +6,13 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:22:13 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/25 11:16:07 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/25 11:28:14 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*-*/
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int		ft_print_p(t_specifier spec, void* arg)
 {

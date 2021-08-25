@@ -6,13 +6,13 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:32:45 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/25 10:20:08 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/25 11:25:20 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*-0+ .*/
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	ft_nblen(int nb)
 {
