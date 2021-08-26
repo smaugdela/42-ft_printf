@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 15:21:28 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/26 11:19:21 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/26 11:38:14 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int			ft_print_xX(t_specifier spec, __uint64_t arg);
 int			ft_print_p(t_specifier spec, void *arg);
 int			ft_is_in_charset(char c, char *charset);
 int			ft_strlen_charset(const char *str, char *charset);
-int			ft_print_width(int width, t_bool bool_0flag, int arg_len);
+int			ft_print_width(int width, t_bool zero_flag, int arg_len);
 t_specifier	ft_scan_structspec(char *spec);
 int			ft_max(int a, int b);
 
