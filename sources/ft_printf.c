@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 17:43:53 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/25 11:28:50 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/26 11:19:22 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_dispatcher(t_specifier spec, va_list arguments)
 	else if (spec.converter == 'p')
 		return (ft_print_p(spec, va_arg(arguments, void*)));
 	else
-		return (42);
+		return (-1);
 }
 
 int	ft_printf(const char *str, ...)
@@ -39,25 +39,33 @@ int	ft_printf(const char *str, ...)
 	va_list		arguments;
 	t_specifier	spec;
 	char		*specifier;
-	int			spec_len;
+	int			tmp_len;
+	int			len;
 
 	va_start(arguments, str);
+	len = 0;
 	while (*str)
 	{
 		if (*str == '%')
 		{
-			spec_len = ft_strlen_charset(++str, "cspdiuxX%") + 1;
-			specifier = ft_substr(str, 0, spec_len);
+			tmp_len = ft_strlen_charset(++str, "cspdiuxX%") + 1;
+			specifier = ft_substr(str, 0, tmp_len);
 			spec = ft_scan_structspec(specifier);
 			free(specifier);
-			str += spec_len - 1;
-			if (ft_dispatcher(spec, arguments) != 0)
-				return (42);
+			str += tmp_len - 1;
+			tmp_len = ft_dispatcher(spec, arguments);
+			if (tmp_len == -1)
+				return (len);
+			else
+				len += tmp_len;
 		}
 		else
+		{
 			write(1, str, 1);
+			++len;
+		}
 		++str;
 	}
 	va_end(arguments);
-	return (0);
+	return (len);
 }

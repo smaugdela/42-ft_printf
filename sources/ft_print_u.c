@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:21:12 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/25 11:25:20 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/26 11:11:05 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,21 @@ static unsigned int ft_uint_len(unsigned int nb)
 int		ft_print_u(t_specifier spec, unsigned int arg)
 {
     int arg_len;
+	int	len;
     
     arg_len = ft_max(ft_uint_len(arg), spec.precision);
+	len = arg_len;
     if (spec.minus_flag)
 	{
         ft_print_width(spec.precision, 1, ft_uint_len(arg));
         ft_putnbr_fd(arg, 1);
-		ft_print_width(spec.width, spec.zero_flag, arg_len);
+		len += ft_print_width(spec.width, spec.zero_flag, arg_len);
 	}
 	else
 	{
-		ft_print_width(spec.width, spec.zero_flag, arg_len);
+		len += ft_print_width(spec.width, spec.zero_flag, arg_len);
 		ft_print_width(spec.precision, 1, ft_uint_len(arg));
         ft_putnbr_fd(arg, 1);
 	}
-    return (0);
+    return (len);
 }

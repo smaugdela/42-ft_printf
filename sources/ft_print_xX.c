@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:21:31 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/25 11:28:21 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/26 11:19:26 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,21 @@ static void ft_printer(t_specifier spec, __uint64_t arg)
 int		ft_print_xX(t_specifier spec, __uint64_t arg)
 {
     int arg_len;
+	int	len;
     
     arg_len = ft_max(ft_hex_len(arg), spec.precision);
     if (arg != 0 && spec.sharp_flag)
         arg_len += 2;
+	len = arg_len;
     if (spec.minus_flag)
 	{
         ft_printer(spec, arg);
-		ft_print_width(spec.width, spec.zero_flag, arg_len);
+		len += ft_print_width(spec.width, spec.zero_flag, arg_len);
 	}
 	else
 	{
-		ft_print_width(spec.width, spec.zero_flag, arg_len);
+		len += ft_print_width(spec.width, spec.zero_flag, arg_len);
         ft_printer(spec, arg);
 	}
-    return (0);
+    return (len);
 }

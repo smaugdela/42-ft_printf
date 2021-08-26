@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 08:07:56 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/25 11:25:20 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/26 11:01:51 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,19 @@ int	ft_strlen_charset(const char *str, char *charset)
 	return (len);
 }
 
-void	ft_print_width(int width, t_bool zero_flag, int arg_len)
+int	ft_print_width(int width, t_bool zero_flag, int arg_len)
 {
 	int		len;
+	int		tmp_len;
 	char	c;
 
 	len = width - arg_len;
+	tmp_len = len;
 	if (zero_flag == 0)
 		c = ' ';
 	else
 		c = '0';
 	while (len-- > 0)
 		write(1, &c, 1);
+	return (ft_max(tmp_len, 0));
 }
