@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 15:21:28 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/26 11:38:14 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/27 12:31:49 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,16 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-/* /!\ ATTENTION Supprimer cet include ATTENTION /!\ */
+# include <stdint.h> /* /!\ ATTENTION Supprimer cet include ATTENTION /!\ */
+//# define OSNUL "0x0"
+
+# if defined __APPLE__ || defined __MACH__
+#  define OSNUL "0x0"
+# else
+#  define OSNUL "(nil)"
+# endif
 
 void		ft_putstr_fd(char *s, int fd);
-void		ft_putnbr_base_fd(long long int n, int fd, const char *base);
 int			ft_strlen(char *str);
 void		ft_putnbr_fd(long long int n, int fd);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
@@ -55,5 +61,6 @@ int			ft_strlen_charset(const char *str, char *charset);
 int			ft_print_width(int width, t_bool zero_flag, int arg_len);
 t_specifier	ft_scan_structspec(char *spec);
 int			ft_max(int a, int b);
+void		ft_put_unbr_base_fd(__uint64_t n, int fd, char *base);
 
 #endif

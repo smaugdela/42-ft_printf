@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:21:31 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/26 11:19:26 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/27 12:09:44 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,17 @@ static unsigned int ft_hex_len(__uint64_t nb)
 static void ft_printer(t_specifier spec, __uint64_t arg)
 {
     if (arg != 0 && spec.sharp_flag)
-        write(1, "0x", 2);
-    ft_print_width(spec.precision, 1, ft_hex_len(arg));
+	{
+		if (spec.converter == 'x')
+        	write(1, "0x", 2);
+		else
+			write(1, "0X", 2);
+	}
+	ft_print_width(spec.precision, 1, ft_hex_len(arg));
     if (spec.converter == 'x')
-        ft_putnbr_base_fd(arg, 1, "0123456789abcdef");
+        ft_put_unbr_base_fd(arg, 1, "0123456789abcdef");
     else
-        ft_putnbr_base_fd(arg, 1, "0123456789ABCDEF");
+        ft_put_unbr_base_fd(arg, 1, "0123456789ABCDEF");
 }
 
 int		ft_print_xX(t_specifier spec, __uint64_t arg)

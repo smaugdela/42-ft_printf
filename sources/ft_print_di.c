@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:32:45 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/26 11:07:48 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/27 09:39:02 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ static int	ft_nblen(int nb)
 	return (len);
 }
 
-static unsigned int	ft_absol(int nb)
+static unsigned int	ft_absol(long int nb)
 {
 	if (nb >= 0)
 		return ((unsigned int)nb);
 	return ((unsigned int)(-1 * nb));
 }
 
-static void	ft_printer(t_specifier spec, int arg)
+static void	ft_printer(t_specifier spec, long int arg)
 {
 	if (arg >= 0)
 	{
@@ -70,8 +70,6 @@ int ft_print_di(t_specifier spec, int arg)
 	arg_len = ft_max(ft_nblen(arg), spec.precision);
     if (arg >= 0)
         arg_len += spec.plus_flag + spec.space_flag;
-	else
-		++arg_len;
 	len = arg_len;
     if (spec.minus_flag)
 	{
