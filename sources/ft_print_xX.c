@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:21:31 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/27 12:09:44 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/30 13:19:29 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "ft_printf.h"
 
-static unsigned int ft_hex_len(__uint64_t nb)
+static int ft_hex_len(unsigned int nb)
 {
 	int    len;
 
@@ -29,7 +29,7 @@ static unsigned int ft_hex_len(__uint64_t nb)
 	return (len);
 }
 
-static void ft_printer(t_specifier spec, __uint64_t arg)
+static void ft_printer(t_specifier spec, unsigned int arg)
 {
     if (arg != 0 && spec.sharp_flag)
 	{
@@ -45,7 +45,7 @@ static void ft_printer(t_specifier spec, __uint64_t arg)
         ft_put_unbr_base_fd(arg, 1, "0123456789ABCDEF");
 }
 
-int		ft_print_xX(t_specifier spec, __uint64_t arg)
+int		ft_print_xX(t_specifier spec, unsigned int arg)
 {
     int arg_len;
 	int	len;
@@ -57,7 +57,7 @@ int		ft_print_xX(t_specifier spec, __uint64_t arg)
     if (spec.minus_flag)
 	{
         ft_printer(spec, arg);
-		len += ft_print_width(spec.width, spec.zero_flag, arg_len);
+		len += ft_print_width(spec.width, 0, arg_len);
 	}
 	else
 	{

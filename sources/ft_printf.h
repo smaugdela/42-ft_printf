@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 15:21:28 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/27 12:31:49 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/30 13:18:49 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-# include <stdint.h> /* /!\ ATTENTION Supprimer cet include ATTENTION /!\ */
-//# define OSNUL "0x0"
+# include <limits.h> /* /!\ ATTENTION Supprimer cet include ATTENTION /!\ */
 
 # if defined __APPLE__ || defined __MACH__
 #  define OSNUL "0x0"
@@ -27,7 +26,7 @@
 
 void		ft_putstr_fd(char *s, int fd);
 int			ft_strlen(char *str);
-void		ft_putnbr_fd(long long int n, int fd);
+void		ft_putnbr_fd(int64_t n, int fd);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 int			ft_isdigit(int c);
 int			ft_atoi(const char *str);
@@ -54,13 +53,13 @@ int			ft_print_cpercent(t_specifier spec, char arg);
 int			ft_print_s(t_specifier spec, char *arg);
 int			ft_print_di(t_specifier spec, int arg);
 int			ft_print_u(t_specifier spec, unsigned int arg);
-int			ft_print_xX(t_specifier spec, __uint64_t arg);
+int			ft_print_xX(t_specifier spec, unsigned int arg);
 int			ft_print_p(t_specifier spec, void *arg);
 int			ft_is_in_charset(char c, char *charset);
 int			ft_strlen_charset(const char *str, char *charset);
 int			ft_print_width(int width, t_bool zero_flag, int arg_len);
 t_specifier	ft_scan_structspec(char *spec);
 int			ft_max(int a, int b);
-void		ft_put_unbr_base_fd(__uint64_t n, int fd, char *base);
+void		ft_put_unbr_base_fd(uint64_t n, int fd, char *base);
 
 #endif

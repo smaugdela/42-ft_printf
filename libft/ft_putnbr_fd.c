@@ -6,13 +6,13 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:23:51 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/24 22:15:37 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/30 13:17:47 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(long long int n, int fd)
+void	ft_putnbr_fd(int64_t n, int fd)
 {
 	char	c;
 

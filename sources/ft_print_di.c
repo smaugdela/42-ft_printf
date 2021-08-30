@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:32:45 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/27 09:39:02 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/30 13:23:34 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "ft_printf.h"
 
-static int	ft_nblen(int nb)
+static int	ft_nblen(int64_t nb)
 {
 	unsigned int	len;
 	unsigned int	tmp_nb;
@@ -37,14 +37,14 @@ static int	ft_nblen(int nb)
 	return (len);
 }
 
-static unsigned int	ft_absol(long int nb)
+static unsigned int	ft_absol(int64_t nb)
 {
 	if (nb >= 0)
 		return ((unsigned int)nb);
 	return ((unsigned int)(-1 * nb));
 }
 
-static void	ft_printer(t_specifier spec, long int arg)
+static void	ft_printer(t_specifier spec, int64_t arg, int arg_len)
 {
 	if (arg >= 0)
 	{
@@ -58,8 +58,18 @@ static void	ft_printer(t_specifier spec, long int arg)
 		write(1, "-", 1);
 		arg = ft_absol(arg);
 	}
-	ft_print_width(spec.precision , 1, ft_nblen(arg));
-	ft_putnbr_fd(arg, 1);
+	if (spec.minus_flag)
+	{
+		ft_print_width(spec.precision , 1, ft_nblen(arg));
+        ft_putnbr_fd(arg, 1);
+		ft_print_width(spec.width, 0, arg_len);
+	}
+	else
+	{
+		ft_print_width(spec.width, spec.zero_flag, arg_len);
+		ft_print_width(spec.precision , 1, ft_nblen(arg));
+		ft_putnbr_fd(arg, 1);
+	}
 }
 
 int ft_print_di(t_specifier spec, int arg)
@@ -71,15 +81,6 @@ int ft_print_di(t_specifier spec, int arg)
     if (arg >= 0)
         arg_len += spec.plus_flag + spec.space_flag;
 	len = arg_len;
-    if (spec.minus_flag)
-	{
-        ft_printer(spec, arg);
-		len += ft_print_width(spec.width, spec.zero_flag, arg_len);
-	}
-	else
-	{
-		len += ft_print_width(spec.width, spec.zero_flag, arg_len);
-		ft_printer(spec, arg);
-	}
-	return (len);
+	ft_printer(spec, arg, arg_len);
+	return (len + ft_max(spec.width - arg_len, 0));
 }

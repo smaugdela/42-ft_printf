@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 11:24:07 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/27 11:58:50 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/30 13:17:47 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static int	ft_base_is_invalid(const char *base)
 	return (0);
 }
 
-void	ft_putnbr_base_fd(long long int n, int fd, const char *base)
+void	ft_putnbr_base_fd(int64_t n, int fd, const char *base)
 {
-	__uint64_t	nbr;
+	uint64_t	nbr;
 	unsigned int	base_len;
 
 	if (ft_base_is_invalid(base))
@@ -49,10 +49,10 @@ void	ft_putnbr_base_fd(long long int n, int fd, const char *base)
 	if (n < 0)
 	{
 		write(fd, "-", 1);
-		nbr = (__uint64_t)(-1 * n);
+		nbr = (uint64_t)(-1 * n);
 	}
 	else
-	nbr = (__uint64_t)n;
+	nbr = (uint64_t)n;
 	base_len = ft_strlen(base);
 	if (nbr >= 0 && nbr < base_len)
 		write(fd, &base[nbr], 1);
