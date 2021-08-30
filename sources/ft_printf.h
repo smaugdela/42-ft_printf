@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 15:21:28 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/30 13:18:49 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/30 14:03:04 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ int			ft_strlen_charset(const char *str, char *charset);
 int			ft_print_width(int width, t_bool zero_flag, int arg_len);
 t_specifier	ft_scan_structspec(char *spec);
 int			ft_max(int a, int b);
-void		ft_put_unbr_base_fd(uint64_t n, int fd, char *base);
+void		ft_put_unbr_base_fd(unsigned int n, int fd, char *base);
 
 #endif

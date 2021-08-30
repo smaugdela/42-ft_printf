@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:22:13 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/30 13:42:11 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/30 14:10:25 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,24 @@ static size_t ft_hex_len(uint64_t nb)
 	return (len);
 }
 
-static void ft_printer(uint64_t arg)
+static void	ft_put_ptr(uint64_t n)
+{
+	char	*base;
+
+	base = "0123456789abcdef";
+	if (n >= 0 && n < 16)
+		write(1, &base[n], 1);
+	else
+	{
+		ft_put_ptr(n / 16);
+		ft_put_ptr(n % 16);
+	}
+}
+
+static void ft_printer(uint64_t ptr)
 {
     write(1, "0x", 2);
-    ft_put_unbr_base_fd(arg, 1, "0123456789abcdef");
+    ft_put_ptr(ptr);
 }
 
 int		ft_print_p(t_specifier spec, void* arg)

@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:32:45 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/30 13:23:34 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/30 14:30:00 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 static int	ft_nblen(int64_t nb)
 {
-	unsigned int	len;
-	unsigned int	tmp_nb;
+	int			len;
+	uint64_t	tmp_nb;
 
 	if (nb == 0)
 		return (1);
@@ -37,11 +37,11 @@ static int	ft_nblen(int64_t nb)
 	return (len);
 }
 
-static unsigned int	ft_absol(int64_t nb)
+static uint64_t	ft_absol(int64_t nb)
 {
 	if (nb >= 0)
-		return ((unsigned int)nb);
-	return ((unsigned int)(-1 * nb));
+		return ((uint64_t)nb);
+	return ((uint64_t)(-1 * nb));
 }
 
 static void	ft_printer(t_specifier spec, int64_t arg, int arg_len)
@@ -77,9 +77,11 @@ int ft_print_di(t_specifier spec, int arg)
     int arg_len;
 	int	len;
 
-	arg_len = ft_max(ft_nblen(arg), spec.precision);
+	arg_len = ft_max(ft_nblen(ft_absol(arg)), spec.precision);
     if (arg >= 0)
         arg_len += spec.plus_flag + spec.space_flag;
+	else if (ft_nblen(arg) <= spec.precision)
+		++arg_len;
 	len = arg_len;
 	ft_printer(spec, arg, arg_len);
 	return (len + ft_max(spec.width - arg_len, 0));
