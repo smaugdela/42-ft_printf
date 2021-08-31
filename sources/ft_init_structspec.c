@@ -6,23 +6,25 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 11:42:10 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/26 11:19:18 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/31 14:45:13 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static t_specifier ft_init_structspec(void)
+static t_specifier	ft_init_structspec(char *specifier)
 {
-	t_specifier spec;
-	
+	t_specifier	spec;
+
 	spec.minus_flag = 0;
 	spec.plus_flag = 0;
 	spec.zero_flag = 0;
 	spec.space_flag = 0;
-	spec.sharp_flag = 0;
+	if (ft_strchr(specifier, '#') != NULL)
+		spec.sharp_flag = 1;
 	spec.precision = -1;
 	spec.width = -1;
+	spec.converter = specifier[ft_strlen_charset(specifier, "cspdiuxX%")];
 	return (spec);
 }
 
@@ -31,25 +33,25 @@ t_specifier	ft_scan_structspec(char *spec)
 	t_specifier	output;
 	char		*width_ptr;
 
+	output = ft_init_structspec(spec);
 	width_ptr = spec;
 	while (ft_is_in_charset(*width_ptr, "-+ 0#"))
 		++width_ptr;
-	output = ft_init_structspec();
-	output.spec = spec;
-	if (ft_strrchr(spec, '-') != NULL)
+	if (ft_strchr(spec, '-') != NULL)
 		output.minus_flag = 1;
-	else if (ft_strrchr(spec, '0') != NULL && ft_strrchr(spec, '0') < width_ptr)
+	else if (ft_strchr(spec, '0') != NULL && ft_strchr(spec, '0') < width_ptr)
 		output.zero_flag = 1;
-	if (ft_strrchr(spec, '+') != NULL)
+	if (ft_strchr(spec, '+') != NULL)
 		output.plus_flag = 1;
-	else if (ft_strrchr(spec, ' ') != NULL)
+	else if (ft_strchr(spec, ' ') != NULL)
 		output.space_flag = 1;
-	if (ft_strrchr(spec, '#') != NULL)
-		output.sharp_flag = 1;
 	if (ft_atoi(width_ptr) > 0)
 		output.width = ft_atoi(width_ptr);
-	if (ft_strrchr(spec, '.') != NULL)
-		output.precision = ft_atoi(ft_strrchr(spec, '.') + 1);
-	output.converter = spec[ft_strlen_charset(spec, "cspdiuxX%")];
+	if (ft_strchr(spec, '.') != NULL)
+	{
+		output.precision = ft_atoi(ft_strchr(spec, '.') + 1);
+		if (output.converter != 's')
+			output.zero_flag = 0;
+	}
 	return (output);
 }

@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:21:12 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/26 11:11:05 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/31 13:37:55 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int		ft_print_u(t_specifier spec, unsigned int arg)
 {
     int arg_len;
 	int	len;
-    
+
+	if (arg == 0 && spec.precision == 0)
+		return (ft_print_s(spec, ""));
     arg_len = ft_max(ft_uint_len(arg), spec.precision);
 	len = arg_len;
     if (spec.minus_flag)

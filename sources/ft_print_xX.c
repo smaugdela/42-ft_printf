@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:21:31 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/30 14:30:59 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/31 13:57:48 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 #include "ft_printf.h"
 
-static int ft_hex_len(unsigned int nb)
+static size_t	ft_hex_len(unsigned int nb)
 {
-	int    len;
+	size_t	len;
 
 	if (nb == 0)
 		return (1);
@@ -27,6 +27,17 @@ static int ft_hex_len(unsigned int nb)
 		nb = nb / 16;
 	}
 	return (len);
+}
+
+static void	ft_put_unbr_base_fd(unsigned int n, char *base)
+{
+	if (n >= 0 && n < 16)
+		write(1, &base[n], 1);
+	else
+	{
+		ft_put_unbr_base_fd(n / 16, base);
+		ft_put_unbr_base_fd(n % 16, base);
+	}
 }
 
 static void ft_printer(t_specifier spec, unsigned int arg)
@@ -40,16 +51,18 @@ static void ft_printer(t_specifier spec, unsigned int arg)
 	}
 	ft_print_width(spec.precision, 1, ft_hex_len(arg));
     if (spec.converter == 'x')
-        ft_put_unbr_base_fd(arg, 1, "0123456789abcdef");
+        ft_put_unbr_base_fd(arg, "0123456789abcdef");
     else
-        ft_put_unbr_base_fd(arg, 1, "0123456789ABCDEF");
+        ft_put_unbr_base_fd(arg, "0123456789ABCDEF");
 }
 
 int		ft_print_xX(t_specifier spec, unsigned int arg)
 {
-    int arg_len;
-	int	len;
-    
+    int		arg_len;
+	size_t	len;
+	
+	if (arg == 0 && spec.precision == 0)
+		return (ft_print_s(spec, ""));
     arg_len = ft_max(ft_hex_len(arg), spec.precision);
     if (arg != 0 && spec.sharp_flag)
         arg_len += 2;

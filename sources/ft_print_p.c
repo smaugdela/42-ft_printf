@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:22:13 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/30 14:10:25 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/31 11:54:54 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,7 @@ int		ft_print_p(t_specifier spec, void* arg)
 	size_t		len;
 
     if (arg == NULL)
-    {
-        ft_putstr_fd(OSNUL, 1);
-        return (ft_strlen(OSNUL));
-    }
+        return (ft_print_s(spec, OSNUL));
     ptr = (uint64_t)arg;
 	len = ft_hex_len(ptr) + 2;
 	if (spec.minus_flag)

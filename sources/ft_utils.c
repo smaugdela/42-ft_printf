@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 08:07:56 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/30 14:02:05 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/08/31 13:57:52 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,4 @@ int	ft_print_width(int width, t_bool zero_flag, int arg_len)
 	while (len-- > 0)
 		write(1, &c, 1);
 	return (ft_max(tmp_len, 0));
-}
-
-void    ft_put_unbr_base_fd(unsigned int n, int fd, char *base)
-{
-	size_t	base_len;
-
-	base_len = ft_strlen(base);
-	if (n >= 0 && n < base_len)
-		write(fd, &base[n], 1);
-	else
-	{
-		ft_put_unbr_base_fd(n / base_len, fd, base);
-		ft_put_unbr_base_fd(n % base_len, fd, base);
-	}
 }
