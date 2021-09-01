@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 11:42:10 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/31 14:45:13 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/09/01 10:27:14 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static t_specifier	ft_init_structspec(char *specifier)
 	spec.space_flag = 0;
 	if (ft_strchr(specifier, '#') != NULL)
 		spec.sharp_flag = 1;
+	else
+		spec.sharp_flag = 0;
 	spec.precision = -1;
 	spec.width = -1;
 	spec.converter = specifier[ft_strlen_charset(specifier, "cspdiuxX%")];
