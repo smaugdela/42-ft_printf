@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:32:45 by smagdela          #+#    #+#             */
-/*   Updated: 2021/09/01 13:17:17 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/09/01 14:02:12 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,11 @@ static void	ft_printer(t_specifier spec, int64_t arg, int arg_len)
 			write(1, " ", 1);
 	}
 	else if (spec.zero_flag)
-		ft_minus_handler(arg);
+		arg = ft_minus_handler(arg);
 	if (spec.minus_flag)
 	{
 		if (arg < 0)
-			ft_minus_handler(arg);
+			arg = ft_minus_handler(arg);
 		ft_print_width(spec.precision, 1, ft_nblen(ft_absol(arg)));
 		ft_putnbr_fd(arg, 1);
 		ft_print_width(spec.width, 0, arg_len);
@@ -73,7 +73,7 @@ static void	ft_printer(t_specifier spec, int64_t arg, int arg_len)
 	{
 		ft_print_width(spec.width, spec.zero_flag, arg_len);
 		if (arg < 0)
-			ft_minus_handler(arg);
+			arg = ft_minus_handler(arg);
 		ft_print_width(spec.precision, 1, ft_nblen(ft_absol(arg)));
 		ft_putnbr_fd(arg, 1);
 	}
