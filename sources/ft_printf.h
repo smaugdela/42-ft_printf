@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 15:21:28 by smagdela          #+#    #+#             */
-/*   Updated: 2021/09/01 10:57:55 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/09/01 13:33:05 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,17 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-/* /!\ ATTENTION Supprimer cet include ATTENTION /!\ */
 /*
 # include <stdint.h>
 # define OSNUL "0x0"
 */
+
 # if defined __APPLE__ || defined __MACH__
 #  define OSNUL "0x0"
 # else
 #  include <stdint.h>
 #  define OSNUL "(nil)"
 # endif
-
 
 void		ft_putstr_fd(char *s, int fd);
 int			ft_strlen(char *str);
@@ -57,7 +56,7 @@ int			ft_print_cpercent(t_specifier spec, char arg);
 int			ft_print_s(t_specifier spec, char *arg);
 int			ft_print_di(t_specifier spec, int arg);
 int			ft_print_u(t_specifier spec, unsigned int arg);
-int			ft_print_xX(t_specifier spec, unsigned int arg);
+int			ft_print_x(t_specifier spec, unsigned int arg);
 int			ft_print_p(t_specifier spec, void *arg);
 int			ft_is_in_charset(char c, char *charset);
 int			ft_strlen_charset(const char *str, char *charset);

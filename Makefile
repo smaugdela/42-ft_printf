@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/10 14:45:50 by smagdela          #+#    #+#              #
-#    Updated: 2021/08/31 14:05:16 by smagdela         ###   ########.fr        #
+#    Updated: 2021/09/01 13:25:12 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LIBFT	=	ft_putstr_fd.c ft_putnbr_fd.c ft_strlen.c ft_substr.c ft_atoi.c ft_isdig
 LIBFTO	=	${addprefix ${OBJD}, ${LIBFT:.c=.o}}
 
 SRCD	=	sources/
-SRCS	=	ft_printf.c ft_print_cpercent.c ft_utils.c ft_init_structspec.c ft_print_s.c ft_print_di.c ft_print_u.c  ft_print_xX.c ft_print_p.c
+SRCS	=	ft_printf.c ft_print_cpercent.c ft_utils.c ft_init_structspec.c ft_print_s.c ft_print_di.c ft_print_u.c  ft_print_x.c ft_print_p.c
 
 OBJD	=	objects/
 OBJS	:=	${addprefix ${OBJD}, ${SRCS:.c=.o}}

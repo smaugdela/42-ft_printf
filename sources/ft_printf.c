@@ -6,18 +6,16 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 17:43:53 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/31 13:45:06 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/09/01 13:31:25 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*https://www.ibisc.univ-evry.fr/~petit/Enseignement/Modelisation-en-C/printf-conversions-format.pdf*/
 
 #include "ft_printf.h"
 
 static int	ft_dispatcher(t_specifier spec, va_list arguments)
 {
 	if (spec.converter == 'c')
-		return (ft_print_cpercent(spec, (char) va_arg(arguments, int)));
+		return (ft_print_cpercent(spec, (char)va_arg(arguments, int)));
 	else if (spec.converter == '%')
 		return (ft_print_cpercent(spec, '%'));
 	else if (spec.converter == 's')
@@ -27,7 +25,7 @@ static int	ft_dispatcher(t_specifier spec, va_list arguments)
 	else if (spec.converter == 'u')
 		return (ft_print_u(spec, va_arg(arguments, unsigned int)));
 	else if (ft_is_in_charset(spec.converter, "xX"))
-		return (ft_print_xX(spec, va_arg(arguments, unsigned int)));
+		return (ft_print_x(spec, va_arg(arguments, unsigned int)));
 	else if (spec.converter == 'p')
 		return (ft_print_p(spec, va_arg(arguments, void*)));
 	else

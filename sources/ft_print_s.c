@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/15 16:20:45 by smagdela          #+#    #+#             */
-/*   Updated: 2021/08/31 11:52:35 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/09/01 13:34:41 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 
 int ft_print_s(t_specifier spec, char *arg)
 {
-	int	len;
+    int len;
 
     if (arg == NULL)
-		arg = "(null)";
+        arg = "(null)";
     if (spec.precision != -1)
         arg = ft_substr(arg, 0, spec.precision);
     else
         arg = ft_strdup(arg);
-	len = ft_strlen(arg);
+    len = ft_strlen(arg);
     if (spec.minus_flag)
     {
         ft_putstr_fd(arg, 1);
