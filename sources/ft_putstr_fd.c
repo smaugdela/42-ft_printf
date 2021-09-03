@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 14:22:19 by smagdela          #+#    #+#             */
-/*   Updated: 2021/05/23 14:53:04 by smagdela         ###   ########.fr       */
+/*   Created: 2021/05/26 16:51:09 by smagdela          #+#    #+#             */
+/*   Updated: 2021/09/03 13:22:59 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_tolower(int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (c >= 65 && c <= 90)
-		return (c + 32);
-	return (c);
+	if (s != NULL)
+	{
+		while (*s)
+		{
+			write(fd, s, sizeof(*s));
+			++s;
+		}
+	}
 }

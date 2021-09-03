@@ -1,20 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 18:24:35 by smagdela          #+#    #+#             */
-/*   Updated: 2021/05/21 18:33:54 by smagdela         ###   ########.fr       */
+/*   Created: 2021/05/20 12:23:51 by smagdela          #+#    #+#             */
+/*   Updated: 2021/09/03 13:22:59 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isascii(int c)
+void	ft_putnbr_fd(int64_t n, int fd)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	char	c;
+
+	if (n == -9223372036854775807)
+		write (fd, "−9223372036854775807", 11);
+	else
+	{
+		if (n < 0)
+		{
+			write (fd, "-", 1);
+			n = -n;
+		}
+		if (n <= 9 && n >= 0)
+		{
+			c = '0' + n;
+			write (fd, &c, 1);
+		}
+		else
+		{
+			ft_putnbr_fd(n / 10, fd);
+			ft_putnbr_fd(n % 10, fd);
+		}
+	}
 }

@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 19:04:52 by smagdela          #+#    #+#             */
-/*   Updated: 2021/05/27 14:05:59 by smagdela         ###   ########.fr       */
+/*   Created: 2021/05/25 11:08:52 by smagdela          #+#    #+#             */
+/*   Updated: 2021/09/03 13:22:59 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_calloc(size_t count, size_t size)
+static int	ft_min(int a, int b)
 {
-	void	*ptr;
+	if (a < b)
+		return (a);
+	return (b);
+}
 
-	ptr = (void *)malloc(count * size);
-	if (!(ptr))
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*subs;
+	size_t	i;
+
+	if (!s)
 		return (NULL);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	subs = (char *)malloc((ft_min(len, ft_strlen(s)) + 1) * sizeof(char));
+	if (!subs)
+		return (NULL);
+	i = 0;
+	while (i < len && (start + i) < ft_strlen(s))
+	{
+		subs[i] = s[start + i];
+		++i;
+	}
+	subs[i] = '\0';
+	return (subs);
 }

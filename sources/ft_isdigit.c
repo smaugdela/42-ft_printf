@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/22 11:08:17 by smagdela          #+#    #+#             */
-/*   Updated: 2021/05/22 11:21:29 by smagdela         ###   ########.fr       */
+/*   Created: 2021/05/21 18:13:45 by smagdela          #+#    #+#             */
+/*   Updated: 2021/09/03 13:22:59 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isprint(int c)
+int	ft_isdigit(int c)
 {
-	if (c >= 32 && c <= 126)
+	if (c >= 48 && c <= 57)
 		return (1);
 	return (0);
 }

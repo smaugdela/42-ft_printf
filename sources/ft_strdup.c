@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 12:23:51 by smagdela          #+#    #+#             */
-/*   Updated: 2021/09/01 13:02:57 by smagdela         ###   ########.fr       */
+/*   Created: 2021/05/20 12:24:07 by smagdela          #+#    #+#             */
+/*   Updated: 2021/09/03 13:22:59 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putnbr_fd(int64_t n, int fd)
+char	*ft_strdup(const char *str)
 {
-	char	c;
+	char	*dest;
+	size_t	i;
 
-	if (n == -9223372036854775807)
-		write (fd, "−9223372036854775807", 11);
-	else
+	dest = (char *)malloc(ft_strlen(str) + 1);
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (*(str + i))
 	{
-		if (n < 0)
-		{
-			write (fd, "-", 1);
-			n = -n;
-		}
-		if (n <= 9 && n >= 0)
-		{
-			c = '0' + n;
-			write (fd, &c, 1);
-		}
-		else
-		{
-			ft_putnbr_fd(n / 10, fd);
-			ft_putnbr_fd(n % 10, fd);
-		}
+		*(dest + i) = *(str + i);
+		++i;
 	}
+	*(dest + i) = '\0';
+	return (dest);
 }

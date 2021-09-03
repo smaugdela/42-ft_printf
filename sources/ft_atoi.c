@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 12:22:55 by smagdela          #+#    #+#             */
-/*   Updated: 2021/06/02 10:52:41 by smagdela         ###   ########.fr       */
+/*   Created: 2021/05/23 18:20:06 by smagdela          #+#    #+#             */
+/*   Updated: 2021/09/03 13:22:59 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
-	char	*tmp_s;
+	int				sign;
+	int				i;
+	unsigned int	result;
 
-	tmp_s = s;
 	i = 0;
-	while (i < n)
-		tmp_s[i++] = '\0';
+	sign = 1;
+	result = 0;
+	while (str[i] == 32 || (str[i] <= 13 && str[i] >= 9))
+		++i;
+	if (str[i] == 43 || str[i] == 45)
+	{
+		if (str[i] == 45)
+			sign *= -1;
+		++i;
+	}
+	while (ft_isdigit(str[i]))
+	{
+		result = (result * 10) + (str[i] - 48);
+		++i;
+	}
+	return (sign * result);
 }

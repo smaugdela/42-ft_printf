@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 17:43:53 by smagdela          #+#    #+#             */
-/*   Updated: 2021/09/01 15:31:48 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/09/03 14:16:45 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_dispatcher(const char *str, va_list arguments)
 	char		*specifier;
 	t_specifier	spec;
 
-	specifier = ft_substr(str, 0, ft_strlen_charset(str, "cspdiuxX%") + 1);
+	specifier = ft_substr(str, 0, ft_strlen_charset(str, "cspdiuxX%\0") + 1);
 	spec = ft_scan_structspec(specifier);
 	free(specifier);
 	if (spec.converter == 'c')
@@ -50,7 +50,9 @@ int	ft_printf(const char *str, ...)
 		if (*str == 37)
 		{
 			len += ft_dispatcher(++str, arguments);
-			str += ft_strlen_charset(str, "cspdiuxX%");
+			str += ft_strlen_charset(str, "cspdiuxX%\0");
+			if (str == '\0')
+				return (len);
 		}
 		else
 		{
