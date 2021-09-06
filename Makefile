@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/10 14:45:50 by smagdela          #+#    #+#              #
-#    Updated: 2021/09/06 12:25:40 by smagdela         ###   ########.fr        #
+#    Updated: 2021/09/06 16:41:06 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRCS	=	ft_printf.c \
 			ft_atoi.c \
 			ft_isdigit.c \
 			ft_strchr.c \
-			ft_strdup.c \
+			ft_strdup.c
 
 OBJD	=	objects/
 OBJS	:=	${addprefix ${OBJD}, ${SRCS:.c=.o}}
@@ -53,7 +53,7 @@ all: ${NAME}
 bonus:	${NAME}
 
 clean:
-	rm -rf ${OBJD} ${BONUSD}
+	rm -rf ${OBJD}
 
 fclean:	clean
 	rm -rf ${NAME}
