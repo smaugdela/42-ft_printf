@@ -37,7 +37,7 @@ OBJS	:=	${addprefix ${OBJD}, ${SRCS:.c=.o}}
 MKDIR	=	mkdir -p
 COMPILER	=	gcc -c -o
 CFLAGS	=	-Wall -Wextra -Werror
-LINKER	=	ar rc
+LINKER	=	ar rcs
 LFLAGS	=	
 
 ${NAME}: ${OBJS}

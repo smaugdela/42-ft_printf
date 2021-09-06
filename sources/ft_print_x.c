@@ -31,7 +31,7 @@ static size_t	ft_hex_len(unsigned int nb)
 
 static void	ft_put_unbr_base_fd(unsigned int n, char *base)
 {
-	if (n >= 0 && n < 16)
+	if (n < 16)
 		write(1, &base[n], 1);
 	else
 	{

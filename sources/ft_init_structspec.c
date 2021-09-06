@@ -26,7 +26,7 @@ static t_specifier	ft_init_structspec(char *specifier)
 		spec.sharp_flag = 0;
 	spec.precision = -1;
 	spec.width = -1;
-	spec.converter = specifier[ft_strlen_charset(specifier, "cspdiuxX%")];
+	spec.converter = specifier[ft_strlen_charset(specifier, "cspdiuxX%\0")];
 	return (spec);
 }
 

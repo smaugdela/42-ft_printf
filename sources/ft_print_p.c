@@ -34,7 +34,7 @@ static void	ft_put_ptr(uint64_t n)
 	char	*base;
 
 	base = "0123456789abcdef";
-	if (n >= 0 && n < 16)
+	if (n < 16)
 		write(1, &base[n], 1);
 	else
 	{

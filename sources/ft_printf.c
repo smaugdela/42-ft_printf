@@ -51,7 +51,7 @@ int	ft_printf(const char *str, ...)
 		{
 			len += ft_dispatcher(++str, arguments);
 			str += ft_strlen_charset(str, "cspdiuxX%\0");
-			if (str == '\0')
+			if (*str == '\0')
 				return (len);
 		}
 		else

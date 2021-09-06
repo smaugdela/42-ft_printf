@@ -16,17 +16,18 @@
 # include <unistd.h>
 # include <stdarg.h>
 
+/*
 # include <stdint.h>
 # define OSNUL "0x0"
+*/
 
-/*
 # if defined __APPLE__ || defined __MACH__
 #  define OSNUL "0x0"
 # else
 #  include <stdint.h>
 #  define OSNUL "(nil)"
 # endif
-*/
+
 
 void		ft_putstr_fd(char *s, int fd);
 size_t		ft_strlen(const char *str);
