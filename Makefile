@@ -6,7 +6,7 @@
 #    By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/10 14:45:50 by smagdela          #+#    #+#              #
-#    Updated: 2021/09/03 14:34:16 by smagdela         ###   ########.fr        #
+#    Updated: 2021/09/06 10:51:14 by smagdela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,8 @@ SRCS	=	ft_printf.c \
 OBJD	=	objects/
 OBJS	:=	${addprefix ${OBJD}, ${SRCS:.c=.o}}
 
-MKDIR	=	mkdir -pv
-COMPILER	=	clang -c -o
+MKDIR	=	mkdir -p
+COMPILER	=	gcc -c -o
 CFLAGS	=	-Wall -Wextra -Werror
 LINKER	=	ar rc
 LFLAGS	=	
@@ -44,11 +44,9 @@ ${NAME}: ${OBJS}
 	${LINKER} $@ ${LFLAGS} ${OBJS}
 	ranlib ${NAME}
 
-${OBJD}%.o: ${SRCD}%.c ${OBJD}
-	${COMPILER} $@ ${CFLAGS} $<
-
-${OBJD}:
+${OBJD}%.o: ${SRCD}%.c
 	${MKDIR} ${OBJD}
+	${COMPILER} $@ ${CFLAGS} $<
 
 all: ${NAME}
 
