@@ -6,7 +6,7 @@
 /*   By: smagdela <smagdela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 15:21:28 by smagdela          #+#    #+#             */
-/*   Updated: 2021/09/06 12:25:23 by smagdela         ###   ########.fr       */
+/*   Updated: 2021/09/14 18:27:25 by smagdela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-/*
-# include <stdint.h>
-# define OSNUL "(nil)"
-*/
-# define OSNUL "0x0"
+# if defined(__linux__)
+#  define OSNUL "(nil)"
+#  include <stdint.h>
+# elif __APPLE__
+#  define OSNUL "0x0"
+# endif
 
 void		ft_putstr_fd(char *s, int fd);
 size_t		ft_strlen(const char *str);
